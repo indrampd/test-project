@@ -2,11 +2,11 @@
 
 import Link from "next/link";
 import { useEffect } from "react";
-import gsap from "gsap";
-import { SplitText } from "gsap/all";
+import { gsap } from "gsap";
+import { SplitText } from "gsap/SplitText";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
 
 export default function Header() {
-	gsap.registerPlugin(SplitText);
 	useEffect(() => {
 		const navLink = document.querySelectorAll(".split");
 
@@ -21,6 +21,19 @@ export default function Header() {
 			stagger: 0.1,
 			ease: "power4.out",
 		});
+
+		const scroller = ScrollSmoother.create({
+			smooth: 1.5,
+			effects: true,
+		});
+
+		scroller.effects("h1", {
+			speed: "clamp(0.5)",
+		});
+
+		scroller.effects("a", {
+			speed: "clamp(0.8)",
+		});
 	});
 	return (
 		<header>
@@ -28,17 +41,23 @@ export default function Header() {
 			<nav>
 				<ul>
 					<li>
-						<Link href="/" className="split">
+						<Link href="/" className="split relative py-2 px-4">
 							Home
 						</Link>
 					</li>
 					<li>
-						<Link href="/about" className="split">
+						<Link
+							href="/about"
+							className="split relative py-2 px-4"
+						>
 							About
 						</Link>
 					</li>
 					<li>
-						<Link href="/contact" className="split">
+						<Link
+							href="/contact"
+							className="split relative py-2 px-4"
+						>
 							Contact
 						</Link>
 					</li>
