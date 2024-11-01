@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "gsap": "file:gsap-bonus.tgz",
+    "gsap": "https://github.com/indrampd/assets/raw/main/gsap-business/npm-install-this/gsap-bonus.tgz",
     "next": "15.0.2",
     "react": "19.0.0-rc-02c0e824-20241028",
     "react-dom": "19.0.0-rc-02c0e824-20241028"
